@@ -1,0 +1,161 @@
+
+.for-you__title{
+    font-size: 24px;
+    font-weight: 700;
+    color: #032b41;
+    margin-bottom: 16px;
+}
+
+.selected__book--wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: calc((100%/3) * 2);
+    background-color: #fbefd6;
+    border-radius: 4px;
+    padding: 24px;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.selected__book--para {
+    color: #032b41;
+    width: 40%;
+}
+
+.selected__book--line {
+    width: 1px;
+    background-color: #bac8ce;
+}
+
+.selected__book--content {
+    width: 60%;
+    display: flex;
+    gap: 16px;
+}
+
+.book__image--wrapper {
+    width: 140px;
+    height: 140px;
+}
+
+/* .selected__book--text {
+    width: 100%;
+} */
+
+.selected__book--title{
+    font-weight: 600;
+    color: #032b41;
+    margin-bottom: 8px;
+}
+
+.selected__book--author {
+    font-size: 14px;
+    color: #394547;
+    margin-bottom: 16px;
+}
+
+.selected__book--duration-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.selected__book--playicon {
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+.selected__book--duration {
+    font-size: 14px;
+    font-weight: 500;
+    color: #032b41;
+}
+
+.for-you__subtitle {
+    font-weight: 300;
+    color: #394547;
+    margin-bottom: 16px;
+}
+
+.for-you__books {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    /* scroll-snap-type: mandatory;
+    scroll-snap-type: x; */
+    margin-bottom: 32px;
+}
+
+.for-you__book--wrapper {
+    max-width: 200px;
+    width: 100%;
+    padding: 32px 12px 12px;
+    position: relative;
+}
+
+.for-you__book--wrapper:hover {
+    background-color: #f1f6f4;
+}
+
+.book__pill{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #032b41;
+    width: fit-content;
+    font-size: 10px;
+    color: white;
+    height: 18px;
+    border-radius: 20px;
+    padding: 0 8px;
+}
+
+.book__image--wrapper {
+    width: 172px;
+    height: 172px;
+}
+
+.book__image {
+    width: 100%;
+    height: 100%;
+}
+
+.recommended__book--details {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #6b757b;
+}
+
+.recommended__book--title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #032b41;
+    margin-bottom: 8px;
+}
+
+.recommended__book--author {
+    font-size: 14px;
+    color: #6b757b;
+    font-weight: 300;
+    margin-bottom: 8px;
+}
+
+.recommended__book--subtitle {
+    font-size: 14px;
+    color: #394547;
+    margin-bottom: 8px;
+}
+
+.recommend__book--details-wrapper {
+    display: flex;
+    gap: 8px;
+}
+
+.recommended__book--details {
+    display: flex;
+}

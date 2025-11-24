@@ -1,0 +1,125 @@
+
+.inner-book__author, .inner-book__title{
+    color: #032b41;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.inner-book__title {
+    font-size: 32px;
+}
+
+.inner-book__subtitle {
+    font-size: 20px;
+    color: #032b41;
+    font-weight: 300;
+    margin-bottom: 16px;
+}
+
+.inner-book__wrapper {
+    border-top: 1px solid #e1e7ea;
+    border-bottom: 1px solid #e1e7ea;
+    padding: 16px 0;
+    margin-bottom: 24px;
+}
+
+.description__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 400px;
+    row-gap: 12px;
+}
+
+.description {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    color: #032b41;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.icon {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+}
+
+.btn__wrapper {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.read {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 144px;
+    height: 48px;
+    background-color: #032b41;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    gap: 8px;
+    transition: opacity 200ms;
+}
+
+.read:hover {
+    opacity: 0.8;
+}
+
+.bookmark {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #0365f2;
+    margin-bottom: 40px;
+    cursor: pointer;
+    transition: color 200ms;
+}
+
+.bookmark:hover {
+    color: #044298;
+}
+
+.bookmark-text {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.secondary-title {
+    font-size: 18px;
+    color: #032b41;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.tag__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.tag {
+    border-radius: 4px;
+    background-color: #f1f6f4;
+    /* width: 200px; */
+    height: 48px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #032b41;
+    padding: 16px;
+
+    cursor: not-allowed;
+}
+
+.content-para {
+    color: #032b41;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}

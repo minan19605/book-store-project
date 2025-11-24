@@ -1,0 +1,31 @@
+
+.summary {
+    position: relative;
+    /* width: 100%; */
+    overflow-y: auto;
+    height: calc(100vh - 160px);
+}
+
+.book__content {
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+    white-space: pre-line;
+}
+
+.title {
+    font-size: 24px;
+    color: #032b41;
+    font-weight: 600;
+    line-height: 1.5;
+    border-bottom: 1px solid #e1e7e0;
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+}
+
+.text {
+    line-height: 1.4;
+    color: #032b41;
+    white-space: pre-line;
+}

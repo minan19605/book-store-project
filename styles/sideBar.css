@@ -1,0 +1,95 @@
+.sideBar {
+    background-color: #f7faf9;
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.mainWindow {
+    margin-left: 200px;
+}
+
+.sidebar__icon--wrapper{
+    position: relative;
+    width: 180px;
+    height: 40px;
+    margin: 24px auto;
+}
+
+.sidebar__top {
+    flex: 1 1;
+    margin-top: 40px;
+}
+
+.sidebar__icon {
+    width: 180px;
+    height: 40px;
+}
+
+.sidebar__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding-bottom: 40px;
+    overflow-y: auto;
+}
+
+.sidebar__defaultHeight {
+    height: calc(100vh - 60px);
+}
+
+.sidebar__PlayerHeight {
+    /* subtract 80px for audio play bar */
+    height: calc(100vh - 140px); 
+}
+
+.sidebar__link--wrapper {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    color: #032b41;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.siderbar__sider {
+    width: 6px;
+    height: 100%;
+    background-color: transparent;
+    margin-right: 16px;
+}
+
+.siderbar__sider--active {
+    background-color: #2bd97c;
+}
+
+.sidebar__link--icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+.siderbar__link--not-allowed {
+    cursor: not-allowed;
+}
+
+.font__selector--wrapper {
+    display: flex;
+    margin-left: 24px;
+    gap: 8px;
+}
+
+.font-size {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+}
