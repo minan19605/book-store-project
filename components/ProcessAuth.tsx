@@ -84,20 +84,20 @@ const GoogleLogin = async (): Promise<User> => {
 
     try {
         const userCredential = await signInWithPopup(auth, provider);
-        // ³É¹¦Ê±£ºÖ±½Ó·µ»Ø User ¶ÔÏó
+        // æˆåŠŸæ—¶ï¼šç›´æ¥è¿”å› User å¯¹è±¡
         return userCredential.user; 
     } catch (e) {
         let errorInfo: string = 'auth/unknown-error';
 
         if (e instanceof FirebaseError) {
-            // Ê§°ÜÊ±£ºÊ¹ÓÃ throw Å×³ö Firebase ´íÎóÂë
+            // å¤±è´¥æ—¶ï¼šä½¿ç”¨ throw æŠ›å‡º Firebase é”™è¯¯ç 
             errorInfo = e.code; 
         } else if (e instanceof Error) {
-            // Ê§°ÜÊ±£ºÅ×³öÍ¨ÓÃ´íÎóĞÅÏ¢
+            // å¤±è´¥æ—¶ï¼šæŠ›å‡ºé€šç”¨é”™è¯¯ä¿¡æ¯
             errorInfo = e.message;
         }
 
-        // Í³Ò»Å×³öÒ»¸öĞÂµÄ Error ¶ÔÏó£¬ÒÔ±ãµ÷ÓÃ·½¿ÉÒÔÔÚ catch ¿éÖĞ²¶»ñ
+        // ç»Ÿä¸€æŠ›å‡ºä¸€ä¸ªæ–°çš„ Error å¯¹è±¡ï¼Œä»¥ä¾¿è°ƒç”¨æ–¹å¯ä»¥åœ¨ catch å—ä¸­æ•è·
         throw new Error(errorInfo);
     }
 }

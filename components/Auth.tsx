@@ -26,7 +26,7 @@ const Auth: React.FC<AuthProps> = ({onClose}) => {
     setPwd('')
   }
 
-  // const handleGoogleLogin = async () => {
+  //   const handleGoogleLogin = async () => {
   //   const result: OperationResult = await GoogleLogin();
 
   //   if(result.success) {
@@ -42,22 +42,17 @@ const Auth: React.FC<AuthProps> = ({onClose}) => {
 
   const handleGoogleLogin = async () => {
     try {
-        // 1. await 成功：直接获取到 User 对象
         const user: User = await GoogleLogin();
         
-        // 成功处理逻辑
         setError('');
         onClose();
         // console.log("Authentication successful! User UID", user.uid); 
         
     } catch (error) {
-        // 2. catch 失败：捕获到 GoogleLogin 中抛出的 Error 对象
-        
-        // 提取错误信息
+
         const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred';
         
-        // 失败处理逻辑
-        const friendlyMessage = getFriendlyErrorMessage(errorMessage); // 假设这个函数依然存在
+        const friendlyMessage = getFriendlyErrorMessage(errorMessage); 
         setError(friendlyMessage);
         console.log("Authentication failure! error: ", errorMessage);
     }
