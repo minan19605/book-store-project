@@ -23,10 +23,14 @@ export default function Home() {
   return (
     <>
       <Nav onOpen={openAuth} />
-      <Landing onOpen={openAuth} />
-      <Features />
-      <Reviews onOpen={openAuth} />
-      <Numbers />
+      <div className="row">
+        <div className="container">
+          <Landing onOpen={openAuth} />
+          <Features />
+          <Reviews onOpen={openAuth} />
+          <Numbers />
+        </div>
+      </div>
       <Footer />
       {
         isAuthOpen && (
