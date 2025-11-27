@@ -1,9 +1,9 @@
 'use client';
 
 import React, {Suspense, useEffect, useState} from 'react'
-import {Book, BookHtml, getBooks, BookLoading} from '@/components/ForYouSelected'
+import {Book, BookHtml, BookLoading} from '@/components/ForYouSelected'
 
-import { fetchUserLibrary } from '@/components/DbOperation';
+import { fetchUserFinished, fetchUserLibrary } from '@/components/DbOperation';
 import styles from '@/components/ForYouSelected.module.css'
 
 const fetchBookData = async (bookId:string):Promise<Book> => {
@@ -25,10 +25,16 @@ export default function GetBooks({userId}:{userId:string}) {
   useEffect(() => {
 
     const fetchFinishedBooks = async () => {
-      const url = `https://us-central1-summaristt.cloudfunctions.net/getBooks?status=`
-      const recommendUrl = url + 'recommended'
-      const finishedBooks = await getBooks(recommendUrl)
-      setFinishedBooks(finishedBooks)
+
+      const finishedBooksList = await fetchUserFinished(userId)
+      if(finishedBooksList.length === 0){
+        setFinishedBooks([]);
+        return;
+      }
+
+      const bookPromises = finishedBooksList.map(bookId => fetchBookData(bookId))
+      const allBookData = await Promise.all(bookPromises)
+      setFinishedBooks(allBookData)
     }
 
     const queryBookList = async () => {
@@ -41,7 +47,7 @@ export default function GetBooks({userId}:{userId:string}) {
       const bookPromises = bookList.map(bookId => fetchBookData(bookId))
       const allBookData = await Promise.all(bookPromises);
       setBooksData(allBookData)
-      console.log(allBookData)
+      // console.log(allBookData)
     }
 
     queryBookList()

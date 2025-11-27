@@ -19,11 +19,14 @@ import {
 
 // import { getAuth } from "firebase/auth";
 import { db } from '@/firebase/init';
+import Link from 'next/link';
 
 const getCustomer = async (userId: string): Promise<string | undefined> => {
     const customerRef = doc(db, "customers", userId)
+    
     const customerSnapShot = await getDoc(customerRef);
-    // console.log("customer data: ", customerSnapShot.data()?.email)
+
+    console.log("customer data: ", customerSnapShot.data()?.email)
     return customerSnapShot.data()?.email as string | undefined;
 }
 
@@ -71,7 +74,8 @@ export default function Page() {
             if(userEmail) {
                 setEmail(userEmail)
             } else {
-                setEmail("None")
+                setEmail("None") // No customer exist
+                return;
             }
 
             const subscriptionPlan = await getCustomerSubscription(userId)
@@ -96,14 +100,17 @@ export default function Page() {
         < SideBar />
         <main className="mainWindow">
             <SearchBar />
-            <div className="row max-w-[1100px] w-full mx-auto px-6">
-                <div className="container w-full py-10">
+            <div className="max-w-[1100px] w-full mx-auto px-6">
+                <div className="w-full py-10">
                     <div className={styles.title}>Settings</div>
                     {isLoggedIn ? 
                     (<>
                         <div className={styles.content}>
                             <div className={styles.subtitle}>Your Subscription plan</div>
-                            <div className={styles.text}>{plan}</div>
+                            {plan ? <div className={styles.text}>{plan}</div> :
+                                (<Link href="/choose-plan" className={styles["plan-cta"]}>
+                                    Please choose your plan
+                                </Link>)}
                         </div>
                         <div className={styles.content}>
                             <div className={styles.subtitle}>Email</div>

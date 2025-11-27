@@ -4,8 +4,10 @@ import React, {useState,useEffect, useRef} from 'react'
 
 import { Book } from './ForYouSelected';
 import AudioPlayer from './AudioPlayer';
+import { useAuth } from '@/components/AuthContext';
 
 import styles from './AudioBar.module.css'
+import { addBookToFinished } from './DbOperation';
 
 function fmt(t:number) {
   const m = Math.floor(t /60);
@@ -15,6 +17,8 @@ function fmt(t:number) {
 
 export default function AudioBar({bookData}:{bookData:Book}) {
 
+  const { currentUser} = useAuth()
+
   const [duration, setDuration] = useState(0)
   const [current, setCurrent] = useState(0)
   const [playing, setPlaying] = useState(false);
@@ -22,6 +26,8 @@ export default function AudioBar({bookData}:{bookData:Book}) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const audioSrc = bookData.audioLink;
+
+
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -34,7 +40,17 @@ export default function AudioBar({bookData}:{bookData:Book}) {
     const onTime = () => setCurrent(audio.currentTime || 0);
     const onPlay = () => setPlaying(true);
     const onPause = () => setPlaying(false) ;
-    const onEnded = () => { setPlaying(false); setCurrent(audio.duration || 0)}
+    // const onEnded = () => { setPlaying(false); setCurrent(audio.duration || 0)}
+
+    const onEnded = async () => {
+
+      setPlaying(false);
+      setCurrent(audio.duration || 0);
+      if(currentUser) {
+        const userId = currentUser.uid
+        await addBookToFinished(userId, bookData.id)
+      }
+    }
 
     audio.addEventListener('loadedmetadata', onLoaded);
     audio.addEventListener('timeupdate', onTime)
@@ -49,7 +65,7 @@ export default function AudioBar({bookData}:{bookData:Book}) {
       audio.removeEventListener('pause', onPause)
       audio.removeEventListener('ended', onEnded)
     }
-  }, [audioSrc])
+  }, [audioSrc, bookData.id, currentUser])
 
   const togglePlay = () => {
     const audio = audioRef.current;

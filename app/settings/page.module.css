@@ -58,3 +58,18 @@
     justify-content: center;
     cursor: pointer;
 }
+
+.plan-cta {
+    color: #1a73e8;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 200ms ease;
+}
+
+.plan-cta:hover {
+    color: #0d47a1;
+    border-bottom-color: #1a73e8;
+}

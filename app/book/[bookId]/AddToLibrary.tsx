@@ -56,7 +56,7 @@ export default function AddToLibrary({bookId}:{bookId:string}) {
         }
         console.log("After get book info, ifExist is: ", ifExist)
         
-    }, [bookId, currentUser, ifExist, isLoggedIn])
+    }, [bookId, currentUser,isLoggedIn]) //Can't add ifExist as dependency
 
   return (
     <div className={styles["bookmark"]}>
