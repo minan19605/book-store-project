@@ -159,3 +159,25 @@
 .recommended__book--details {
     display: flex;
 }
+
+@media (max-width: 768px) {
+    .selected__book--wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .selected__book--para {
+        /* color: #032b41; */
+        width: 100%;
+    }
+
+    .selected__book--line {
+        display: none;
+    }
+
+    .selected__book--content {
+        width: 100%;
+
+    }
+}

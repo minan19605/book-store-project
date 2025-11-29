@@ -97,7 +97,6 @@ export default function Page() {
 
   return (
     <div className="wrapper">
-        < SideBar />
         <main className="mainWindow">
             <SearchBar />
             <div className="max-w-[1100px] w-full mx-auto px-6">

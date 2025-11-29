@@ -13,7 +13,21 @@
 .searchBar__wrapper {
     position: relative;
     display: flex;
-    width: 400px;
+    align-items: center;
+    gap: 16px;
+}
+
+.sideBar__toggleBtn {
+    padding-right: 12px;
+    color: #6b757b;
+    display: none;
+}
+
+.seach_combo {
+    position: relative;
+    display: flex;
+    max-width: 400px;
+    width: 400;
     height: 40px;
     margin-right: 24px;
     background-color: #f1f6f4;
@@ -103,4 +117,40 @@
     display: flex;
     width: 16px;
     height: 16px;
+}
+
+.sideBar__overlay {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #032b41;
+    transition: opacity 400ms ease 0s;
+    opacity: 0.65;
+    /* pointer-events: auto; */
+    z-index: 10;
+}
+
+/* .sideBar__overlay--enable  {
+    opacity: 0.65;
+    pointer-events: auto;
+}
+
+.sideBar__overlay--disable {
+    opacity: 0;
+} */
+
+@media (max-width: 768px) {
+    .sideBar__toggleBtn {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .seach_combo {
+        width: 300px;
+    }
 }

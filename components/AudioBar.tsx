@@ -97,14 +97,14 @@ export default function AudioBar({bookData}:{bookData:Book}) {
   return (
     <div className={styles["audio_bar"]}>
         <div className={styles["book__wrapper"]}>
-            <figure className={styles["book__img"]}>
-                <img src={bookData.imageLink} />
+            <figure className={styles["book__img--wrapper"]}>
+                <img src={bookData.imageLink} className={styles["book__img"]} />
             </figure>
             <div className={styles["book__info"]}>
                 <div className="book__title">
                     {bookData.title}
                 </div>
-                <div className="book_author">
+                <div className={styles["book_author"]}>
                     {bookData.author}
                 </div>
             </div>

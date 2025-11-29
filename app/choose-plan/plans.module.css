@@ -229,3 +229,13 @@
     padding-left: 1rem; /* px-4 */
     padding-right: 1rem; /* px-4 */
 }
+
+@media (max-width: 768px) {
+    .plan__title {
+        font-size: 36px;
+    }
+
+    .section__title {
+        font-size: 28px;
+    }
+}

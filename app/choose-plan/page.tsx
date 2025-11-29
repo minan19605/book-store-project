@@ -138,7 +138,7 @@ export default function Page() {
                         <details className={`${styles["collapsible__details"]} border-b border-gray-300 mb-2 overflow-hidden`} >
                             {/* <!-- 标题和箭头区域 (summary) --> */}
                             <summary className="flex justify-between items-center py-6 cursor-pointer select-none transition duration-150">
-                                <h3 className="text-2xl font-semibold text-gray-800">
+                                <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">
                                     How does the free 7-day trial work?
                                 </h3>
                                 
@@ -158,7 +158,7 @@ export default function Page() {
                         <details className={`${styles["collapsible__details"]} border-b border-gray-300 mb-2 overflow-hidden`} >
                             {/* <!-- 标题和箭头区域 (summary) --> */}
                             <summary className="flex justify-between items-center py-6 cursor-pointer select-none transition duration-150">
-                                <h3 className="text-2xl font-semibold text-gray-800">
+                                <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">
                                     Can I switch subscriptions from monthly to yearly, or yearly to monthly?
                                 </h3>
                                 
@@ -178,7 +178,7 @@ export default function Page() {
                         <details className={`${styles["collapsible__details"]} border-b border-gray-300 mb-2 overflow-hidden`} >
                             {/* <!-- 标题和箭头区域 (summary) --> */}
                             <summary className="flex justify-between items-center py-6 cursor-pointer select-none transition duration-150">
-                                <h3 className="text-2xl font-semibold text-gray-800">
+                                <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">
                                     What&apos;s included in the Premium plan?
                                 </h3>
                                 
@@ -198,7 +198,7 @@ export default function Page() {
                         <details className={`${styles["collapsible__details"]} border-b border-gray-300 mb-2 overflow-hidden`} >
                             {/* <!-- 标题和箭头区域 (summary) --> */}
                             <summary className="flex justify-between items-center py-6 cursor-pointer select-none transition duration-150">
-                                <h3 className="text-2xl font-semibold text-gray-800">
+                                <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">
                                     Can I cancel during my trial or subscription?
                                 </h3>
                                 

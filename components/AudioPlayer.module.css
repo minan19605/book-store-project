@@ -63,3 +63,27 @@
   margin-top:calc((var(--track-h) - 14px)/2);
   box-shadow:0 0 0 2px rgba(8,37,49,.2); cursor:pointer;
 }
+
+
+@media (max-width: 768px) {
+    .bar {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+    }
+
+    .controls {
+      width: 100%;
+    }
+
+    .progressWrap {
+      width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .seach_combo {
+        width: 300px;
+    }
+}

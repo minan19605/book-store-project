@@ -8,6 +8,8 @@ import { Book } from './ForYouSelected'
 import GetAudioDuration from './GetAudioDuration';
 
 import { ShimmerWrapper, Skeleton } from './ShimmerSkeleton';
+import { FaBars } from 'react-icons/fa';
+import SideBar from './SideBar';
 
 type CSSModule = Readonly<Record<string, string>>;
 
@@ -83,6 +85,12 @@ export default function SearchBar() {
   const [inputValue, setInputValue] = useState('')
   const [searchResult, setSearchResult] = useState<Book[]>([])
 
+  //Control the side bar in small screen max-width:768px
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const toggleSideBar = () => {
+    setIsSidebarOpen(!isSidebarOpen)
+  }
+
   const searchBook = async (inputValue:string) => {
     const url = `https://us-central1-summaristt.cloudfunctions.net/getBooksByAuthorOrTitle?search=${inputValue}`
     const response = await fetch(url)
@@ -113,20 +121,31 @@ export default function SearchBar() {
 
 
   return (
-    <div className={styles.search__background}>
-      <div className={styles['searchBar__wrapper']}>
-        <input type="text" placeholder='Input book name' className={styles["searchBar__input"]}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}/>
-        <div className={styles["searchBar__icon"]}>
-          {inputValue ? <HiXMark size={24} onClick={() => setInputValue('')} /> : <HiOutlineMagnifyingGlass size={24} />}
+    <>
+      <div className={styles.search__background}>
+        <div className={styles['searchBar__wrapper']}>
+          <div className={styles.seach_combo}>
+            <input type="text" placeholder='Input book name' className={styles["searchBar__input"]}
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}/>
+            <div className={styles["searchBar__icon"]}>
+              {inputValue ? <HiXMark size={24} onClick={() => setInputValue('')} /> : <HiOutlineMagnifyingGlass size={24} />}
+            </div>
+          </div>
+          <div className={styles.sideBar__toggleBtn}>
+            <FaBars size={28} onClick={toggleSideBar}/>
+          </div>
         </div>
+        
+
+        {inputValue && 
+          <div className={styles['search__books--wrapper']}>
+            {isLoading ? (<BookGridSkeleton />) :
+            (searchResult.length > 0 ? searchResult.map( (book) => <SearchedBook book={book} styles={styles} key={book.id}/> ): "No Books found")}
+          </div>}
       </div>
-      {inputValue && 
-      <div className={styles['search__books--wrapper']}>
-        {isLoading ? (<BookGridSkeleton />) :
-        (searchResult.length > 0 ? searchResult.map( (book) => <SearchedBook book={book} styles={styles} key={book.id}/> ): "No Books found")}
-      </div>}
-    </div>
+      { isSidebarOpen && (<div className={styles.sideBar__overlay} onClick={toggleSideBar}></div>)}
+      <SideBar isOpen={isSidebarOpen} />
+    </>
   )
 }

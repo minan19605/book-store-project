@@ -1,15 +1,22 @@
 .sideBar {
     background-color: #f7faf9;
     width: 200px;
+    min-width: 200px;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
+    transition: all 300ms;
 }
 
 .mainWindow {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     margin-left: 200px;
+    /* width: calc(100% - 200px); */
+    transition: all .3s;
 }
 
 .sidebar__icon--wrapper{
@@ -92,4 +99,24 @@
     cursor: pointer;
     width: 32px;
     height: 32px;
+}
+
+@media (max-width: 768px) {
+    .mainWindow {
+        margin-left: 0;
+    }
+
+    .sideBar {
+        transform: translateX(-100%);
+    }
+
+    .sideBar-show {
+        transform: translateX(0);
+        width: 80%;
+    }
+
+    .sidebar__PlayerHeight {
+        /* subtract 80px for audio play bar */
+        height: calc(100vh - 260px); 
+    }
 }

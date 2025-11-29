@@ -22,7 +22,7 @@ import Auth from './Auth';
 
 const FONT_MODES = [0, 1, 2, 3];
 
-export default function SideBar() {
+export default function SideBar({isOpen}:{isOpen:boolean}) {
     const currentPath = usePathname();
 
     const playerRoutePrefix = '/player/'
@@ -43,9 +43,10 @@ export default function SideBar() {
         }
     }
     const displayText = isLoggedIn ? "Logout" : "Login";
+    const sideBarToggle = isOpen ? "sideBar sideBar-show": "sideBar"
 
   return (
-    <aside className="sideBar">
+    <aside className={`${sideBarToggle}`}>
         <figure className="sidebar__icon--wrapper">
             <Image className="sidebar__icon" sizes="180px" fill={true} src="/assets/logo.png" alt="logo" />
         </figure>

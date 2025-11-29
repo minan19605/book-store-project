@@ -20,9 +20,15 @@
     width: calc(100% / 3);
 }
 
-.book__img {
+.book__img--wrapper {
     width: 48px;
     height: 48px;
+    min-width: 48px
+}
+
+.book__img {
+    width: 100%;
+    height: 100%;
 }
 
 .book__info {
@@ -32,6 +38,10 @@
     flex-direction: column;
     gap: 4px;
     justify-content: center;
+}
+
+.book_author {
+    color: #bac8ce;
 }
 
 .player__wrapper, .audio__progress {
@@ -49,4 +59,23 @@
 .audio__time {
     columns: #fff;
     font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .audio_bar {
+        display: flex;
+        flex-direction: column;
+        height: 200;
+        padding: 16px 24px;
+    }
+
+    .book__wrapper {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .seach_combo {
+        width: 300px;
+    }
 }

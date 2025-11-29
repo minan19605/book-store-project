@@ -80,10 +80,10 @@ export default async function page({params}: {params: Promise<{bookId: string}>}
   return (
     <>
     <SearchBar />
-    <div className="row max-w-[1100px] w-full mx-auto px-6">
-      <div className="container w-full py-10">
+    <div className="max-w-[1100px] w-full mx-auto px-6">
+      <div className="w-full py-10">
         <Suspense fallback={< BookInfoSkeleton />} >
-        {(<div className="inner__wrapper flex gap-4">
+        {(<div className={styles.inner__wrapper}>
           <div className="inner-book w-full">
             <div className={styles["inner-book__title"]}>{bookData.title}</div>
             <div className={styles["inner-book__author"]}>{bookData.author}</div>
